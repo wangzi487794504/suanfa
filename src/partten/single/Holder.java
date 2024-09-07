@@ -13,7 +13,7 @@ public class Holder {
     private Holder (
     ){}
     public static Holder getInstance(){
-
+        return new Holder();
     }
     public static class  InnerClass{
         private static final Holder HOLDER=new Holder();
