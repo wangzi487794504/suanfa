@@ -14,7 +14,7 @@ import java.util.Arrays;
 public class CanPartition {
     public boolean canPartition(int[] nums) {
         //todo 找到两个不同的集合的value相等，要满足nums的和/2=target，而只要有集合是满足target的，那么就能找打到集合满足
-        //求和
+        //求和，不要管另外一个集合
         int sum = Arrays.stream(nums).sum();
         int target=sum/2;
         if(sum % 2 != 0) {
