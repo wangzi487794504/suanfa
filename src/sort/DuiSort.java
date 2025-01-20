@@ -15,20 +15,26 @@ public class DuiSort {
     //如果移除一个元素
     static void heapfy(int[] nums,int index,int heapSize){
         //先交换两个元素
+        //因为从0开始的，所以left是左孩子的下标，左孩子已经小于size，右孩子一定会小
         int left=index*2+1;
         while (left<heapSize){
+            //如果有左孩子，就判断有没有右孩子，有就比较左和右谁大
             int largest= (left+1)<heapSize &&( nums[left+1]>nums[left]) ? (left+1): left;
+            //比较父节点和子节点最大值比较
             largest=nums[index]> nums[largest]? index:largest;
+            //如果最大值还是父节点，就不要再操作了
             if (largest==index){
                break;
             }
             swap(nums, index, largest);
             index=largest;
+            //下一步仍然是和左孩子
             left=index*2+1;
         }
     }
     //新加进来的说，一直与它父节点比较大小，大则交换，一直到比不过或为
     private static void heapInsert(int[] nums,int index){
+        //只要大于父节点，就交换
         while (nums[index]>nums[(index-1)/2]){
             swap(nums, index, (index-1)/2);
             index=(index-1)/2;
@@ -44,13 +50,13 @@ public class DuiSort {
             return;
         }
         //使用元素插入
-//        for (int i = 0; i < nums.length; i++) {
-//            heapInsert(nums, i);
-//        }
-        //如果直接给数组，从下网上建立大根堆
-        for (int i = nums.length/2-1; i>=0; i--) {
-            heapfy(nums, i,nums.length);
+        for (int i = 0; i < nums.length; i++) {
+            heapInsert(nums, i);
         }
+        //如果直接给数组，从下网上建立大根堆
+//        for (int i = nums.length/2-1; i>=0; i--) {
+//            heapfy(nums, i,nums.length);
+//        }
         int heapSize= nums.length-1;
         //取出第一个，然后修正;
         while (heapSize>0){
@@ -65,7 +71,6 @@ public class DuiSort {
     public static void main(String[] args) {
         int[] nums=new int[]{49,38,65,97,76,13,27,49,55,4};
         heapSort(nums);
-
     }
     volatile int a;
 }

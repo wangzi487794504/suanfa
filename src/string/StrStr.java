@@ -46,7 +46,7 @@ public class StrStr {
         next[0]=0;
         for ( int i = 1; i < next.length; i++) {
             while (j>0 && arrays[i]!=arrays[j]){
-                //不相等，我这个和你不等，我要退到上一个j-1相等的地方，下一个元素再和你比较
+                //不相等，我这个和你不等，我要退到上一个最长相等前缀，下一个元素再和你比较
                 j=next[j-1];
             }
             if (arrays[i]==arrays[j]){
@@ -61,6 +61,7 @@ public class StrStr {
 
     public static void main(String[] args) {
         String s="aabaabaafa";
+        
         String s2="aabaaf";
         System.out.println(new StrStr().strStr(s, s2));
     }

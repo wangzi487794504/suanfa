@@ -1,6 +1,6 @@
 package hash;
 
-import lombok.Data;
+
 import sun.misc.Unsafe;
 
 import java.lang.reflect.Field;
@@ -40,7 +40,6 @@ public class TwoSum {
         System.out.println(t);
     }
 }
-@Data
 class Teacher {
     volatile int id;
     volatile String name;

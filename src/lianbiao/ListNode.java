@@ -10,9 +10,9 @@ package lianbiao;
  * @Version 1.0
  */
 public class ListNode {
-    int val;
-    lianbiao.ListNode next;
-    ListNode() {}
-    ListNode(int val) { this.val = val; }
-    ListNode(int val, lianbiao.ListNode next) { this.val = val; this.next = next; }
+    public int val;
+    public lianbiao.ListNode next;
+    public ListNode() {}
+    public ListNode(int val) { this.val = val; }
+    public ListNode(int val, lianbiao.ListNode next) { this.val = val; this.next = next; }
 }

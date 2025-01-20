@@ -19,7 +19,7 @@ public class Lazy {
         }
     }
     //避免new的时候指令重排
-    private volatile   static Lazy lazy;
+    private volatile static Lazy lazy;
     //DCL懒汉式
     public static Lazy getInstance(){
         if(lazy==null){
